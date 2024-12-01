@@ -15,27 +15,46 @@ public class mainV01 {
 		String fileName = "userN_pass";
 		final String pathToDataBase = "DataBase" + File.separator + "userData";
 		final String pathToFile = pathToDataBase + File.separator + fileName + ".txt";
+		boolean usernameExists = false;
 		
 		File userLo = new File(pathToFile);
 		
+		Scanner userData = new Scanner(userLo);
 		Scanner userIn = new Scanner(System.in);
 		
+		// USER CHOICE LOGIN OR SIGN IN
 		System.out.print("Login(1) # Sign In(2): ");
 		int choice = userIn.nextInt();
 		
-		//LOGIN
+		// LOGIN
 		if(choice == 1) {
 		
 		// USERNAME 
 		System.out.print("Please enter your username: ");
 		String username = userIn.next();
+
+		// IF USERNAME EXISTS KILLS THE PROGRAM
+		while (userData.hasNextLine()) {
+		
+			String line = userData.nextLine();
+			if(line.equals(username)) {
+				
+				System.out.println("The username already exists!");
+				return;
+				
+			}
+			
+		}
 		
 		// PASSWORD
 		System.out.print("Please enter your password: ");
 		String password = userIn.next();
 		
+		userData.close();
+		
 		try {
 			
+			// WRITES THE USER INFORMATION (UPDATE)
 			PrintWriter dataWrite = new PrintWriter(new FileWriter(userLo, true));
 			
 			dataWrite.print(username + "\n");
@@ -45,16 +64,17 @@ public class mainV01 {
 			dataWrite.close();
 			
 		} 
-		catch (FileNotFoundException e) {
-
-			e.printStackTrace();
+		catch (FileNotFoundException err) {
+			
+			// ERROR
+			err.printStackTrace();
 			
 		}
 		
 		}
 		
 		//SIGN IN
-		else {
+		else {	
 			
 			
 			
