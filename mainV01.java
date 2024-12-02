@@ -23,7 +23,7 @@ public class mainV01 {
 		Scanner userIn = new Scanner(System.in);
 		
 		// USER CHOICE LOGIN OR SIGN IN
-		System.out.print("Login(1) # Sign In(2): ");
+		System.out.print("Login(1) # Sign Up(2): ");
 		int choice = userIn.nextInt();
 		
 		// LOGIN
@@ -73,7 +73,7 @@ public class mainV01 {
 		
 		}
 		
-		//SIGN IN
+		//SIGN Up
 		else {	
 			
 			
