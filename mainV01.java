@@ -23,7 +23,7 @@ public class mainV01 {
 		Scanner userIn = new Scanner(System.in);
 		
 		// USER CHOICE LOGIN OR SIGN IN
-		System.out.print("Login(1) # Sign Up(2): ");
+		System.out.print("Login(1) # Sign In(2): ");
 		int choice = userIn.nextInt();
 		
 		// LOGIN
@@ -73,10 +73,40 @@ public class mainV01 {
 		
 		}
 		
-		//SIGN Up
+		//SIGN IN
 		else {	
 			
+			// USERNAME 
+			System.out.print("Please enter your username: ");
+			String username = userIn.next();
+
+			//
+			while (userData.hasNextLine()) {
 			
+				String line = userData.nextLine();
+				if(line.equals(username)) {
+					
+					// PASSWORD
+					System.out.print("Please enter your password: ");
+					String password = userIn.next();
+					
+					if(userData.nextLine().equals(password)) {
+						
+						System.out.println("Password is correct!");
+						
+					}
+					else {
+						
+						System.out.println("WRONG PASSWORD!");
+						return;
+						
+					}
+					
+				}
+				
+			}
+			
+			userData.close();
 			
 		}
 
