@@ -80,7 +80,7 @@ public class mainV01 {
 			System.out.print("Please enter your username: ");
 			String username = userIn.next();
 
-			//
+			// FINDS THE USERNANR AND THEN READS THE NEXTLINE
 			while (userData.hasNextLine()) {
 			
 				String line = userData.nextLine();
